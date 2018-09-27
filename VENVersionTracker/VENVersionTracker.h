@@ -18,7 +18,7 @@ typedef enum {
 } VENVersionTrackerState;
 
 typedef void (^VENVersionHandlerBlock)(VENVersionTrackerState, VENVersion *);
-typedef void (^VENVersionTrackBlock)();
+typedef void (^VENVersionTrackBlock)(void);
 
 @interface VENVersionTracker : NSObject
 
