@@ -34,8 +34,9 @@
 
 
 - (BOOL)install {
-    if (self.installUrl) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.installUrl]];
+    if (self.installUrl &&
+        [[UIApplication sharedApplication] respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.installUrl] options: @{} completionHandler:nil];
     }
     return NO;
 }
